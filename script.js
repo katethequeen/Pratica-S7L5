@@ -29,7 +29,7 @@ const getProducts = function () {
             <div class="card-body">
               <h2 class="card-title text-center">${product.name}</h2>
               <p class="card-title text-center fs-4">${product.brand} - ${product.price}$</p>
-              <p>${product.description}</p>
+              <p class="text-center">${product.description}</p>
               <a href="./details.html?productId=${product._id}" class="btn btn-primary w-100">Details</a>
             </div>
           </div>
@@ -37,6 +37,8 @@ const getProducts = function () {
         cardsContainer.appendChild(newCol);
         console.log(product.description);
       });
+      const spinner = document.querySelector(".spinner-border");
+      spinner.style.display = "none";
     })
     .catch((err) => console.log("Error", err));
 };

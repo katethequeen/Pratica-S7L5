@@ -20,6 +20,8 @@ const getSingleProduct = function () {
     })
     .then((singleProduct) => {
       createDetailCard(singleProduct);
+      const spinner = document.querySelector(".spinner-border");
+      spinner.style.display = "none";
     })
     .catch((err) => console.log("Error", err));
 };
@@ -32,9 +34,9 @@ const createDetailCard = function (productDetails) {
     <div class="card">
     <img src="./assets/makeup.jpg" class="card-img-top" alt="Product image">
     <div class="card-body">
-    <h2 class="card-title">${productDetails.name}</h2>
-    <h4 class="card-title">${productDetails.brand} - ${productDetails.price}$</h4>
-    <p>${productDetails.description}</p>
+    <h2 class="card-title text-center">${productDetails.name}</h2>
+    <h4 class="card-title text-center">${productDetails.brand} - ${productDetails.price}$</h4>
+    <p class="text-center">${productDetails.description}</p>
     <div class="d-flex justify-content-around gap-2">
     <button class="btn btn-primary w-50" onclick="deleteProduct()">Delete</button>
     <a href="./backoffice.html?productId=${productDetails._id}" class="btn btn-primary w-50">Modify</a>
